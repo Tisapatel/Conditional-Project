@@ -1,68 +1,68 @@
-
-📄 SIP Calculator  
-
-
- – Simple Documentation
-
+// Documentation //
+📄 SIP Calculator – Simple Documentation
 🔷 Project Name:
 SIP (Systematic Investment Plan) Calculator
 
 🔷 Description:
-Yeh ek simple web-based calculator hai jo users ko batata hai ki agar wo har mahine ek fix amount invest karein, to kitna paisa banega future mein. Isme user sliders se amount, return rate aur time select karta hai, aur result turant milta hai.
+This is a simple web-based calculator that helps users understand how much money they can grow in the future if they invest a fixed amount every month. The user can select the investment amount, return rate, and time period using sliders, and the result is shown instantly.
 
 🏗️ Technologies Used:
+HTML – For creating the structure of the webpage
 
-    * HTML – Structure banane ke liye
-    
-    * CSS – Styling aur design ke liye
-     
-    * Bootstrap – Responsive layout ke liye
-    
-    * JavaScript – Calculation aur chart dikhane ke liye
-    
-    * Chart.js – Doughnut chart banane ke liye
+CSS – For styling and layout design
+
+Bootstrap – For making the layout responsive on all devices
+
+JavaScript – For performing the calculations and handling the chart
+
+Chart.js – To display a doughnut chart showing investment details
 
 📋 Features:
+3 Interactive Sliders:
 
-    3 sliders:
+Monthly Investment
 
-    *  Monthly Investment
-    
-    *  Expected Return Rate
-     
-    *  Time Period (Years)
-     
-    *  Real-time calculation jaise hi slider change karo
-      
-    *  Invested amount, Estimated returns, aur Total value dikhta hai
-      
-    *  Doughnut chart dikhata hai investment aur returns ka breakdown
-      
-    *  Responsive design – mobile/laptop dono pe achha dikhta hai
-     
-    *  Side section mein popular calculators ke links aur info card bhi hai
+Expected Return Rate
+
+Time Period (in Years)
+
+Instant calculation when sliders are changed
+
+Displays:
+
+Total Invested Amount
+
+Estimated Returns
+
+Total Future Value
+
+Doughnut chart shows a clear visual breakdown of investment vs returns
+
+Responsive design – works well on both mobile and desktop
+
+Side section contains links to popular calculators and an info card
 
 👩‍💻 User Flow:
+The user sets their monthly investment using a slider
 
-User apna monthly investment set karta hai
+Selects the expected return rate and investment duration
 
-Expected return rate aur time period choose karta hai
+The final result is updated automatically below
 
-Niche result automatically update hota hai
+A chart helps the user clearly understand how much their money can grow
 
-Chart se easily samajh aata hai ki kitna paisa banega
+📦 Folder Structure (Basic Overview):
+index.html – Main file of the project
 
-📦 Folder Structure (Basic Idea):
+css/style.css – Styling file
 
-    *   index.html – Main file
-       
-    *   css/style.css – Styling
-       
-    *   js/script.js – Logic and calculations
-       
-    *   Assets – Images and logos (optional)
+js/script.js – Contains the logic and calculations
+
+Assets – Folder for images, logos (if any)
 
 ✅ Conclusion:
+This SIP Calculator is a helpful and easy-to-use tool for users to plan their mutual fund SIP investments. It provides real-time results with a simple user interface, making it accessible for everyone without any confusion.
 
-Ye SIP Calculator ek useful tool hai jisse users apni mutual fund SIP planning easily kar sakte hain. Yeh tool real-time calculation aur easy UI ke saath bana hai taaki sab log use kar sakein bina kisi confusion ke.
+
+
 
