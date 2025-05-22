@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP Calculator - Systematic Investment Plan Calculator Online</title>
+    <link rel="icon" href="https://cdn.brandfetch.io/groww.in/fallback/lettermark/theme/dark/h/256/w/256/icon?c=1bfwsmEH20zzEfSNTed" type="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+
+        <nav
+            style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-family: 'Segoe UI', sans-serif;">
+            
+            <div style="display: flex; align-items: center;">
+                <img src="https://assets-netstorage.groww.in/website-assets/prod/1.5.2/build/client/images/logo-dark-groww.83f43714.svg"
+                    alt="Groww Logo" style="height: 24px; margin-right: 15px;">
+                <a href="#" style="margin-right: 15px; text-decoration: none; color: #333;">Stocks</a>
+                <a href="#" style="margin-right: 15px; text-decoration: none; color: #333;">F&O</a>
+                <a href="#" style="margin-right: 15px; text-decoration: none; color: #333;">Mutual Funds</a>
+                <a href="#" style="text-decoration: none; color: #333;">More</a>
+            </div>
+
+            
+            <div style="display: flex; align-items: center;">
+                <input type="text" placeholder="Search Groww..."
+                    style="padding: 6px 12px; border: 1px solid #ccc; border-radius: 4px; margin-right: 15px; outline: none;" />
+                <button class="btn btn-success text-white"
+                    style="color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    Login/Sign up
+                </button>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="container">
+            <h3 class="fw-bold mb-4 mt-4" style="color:#393e46;">SIP Calculator</h3>
+            <div class="row d-flex justify-content-center g-4">
+                
+                <div class="col-lg-8">
+                    <div class="main-card">
+                       
+                        <div class="mb-4 d-flex align-items-center">
+                            <button class="tab-btn">SIP</button>
+                            <button class="tab-btn inactive">Lumpsum</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+
+                               
+                                <div class="mb-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <label for="investment">Monthly Investment</label>
+                                        <input type="number" name="investment" id="investment"
+                                            class="slider-value mx-2 border-0" style="width: 135px;" span="₹" value="100"
+                                            required>
+                                    </div>
+                                    <input type="range" name="invest_range" onchange="handleChange()" id="invest_range"
+                                        min="0" max="1000000" step="500" value="25000" class=" w-100 ">
+                                </div>
+
+                               
+                                <div class="mb-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <label for="rate">Expected return rate (p.a)</label>
+                                        <input type="text" name="rate" id="rate" class="slider-value mx-2 border-0"
+                                            style="width: 135px;" value="12" required>
+                                    </div>
+                                    <input type="range" name="rate_range" onchange="handleChange()" id="rate_range"
+                                        min="1" max="30" step="0.1" class=" w-100">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <label for="time">Time period</label>
+                                        <input type="number" name="time" id="time" class="slider-value mx-2  border-0"
+                                            style="width: 135px;" value="10" required>
+                                    </div>
+                                    <input type="range" name="time_range" onchange="handleChange()" id="time_range"
+                                        min="1" max="40" step="1" class=" w-100">
+                                </div>
+
+                                
+                                <div class="row mb-3 mt-5">
+                                    <div class="col-6">
+                                        <div class="result-label text-">Invested Amount</div>
+                                         </div>
+                                        <div class="col-6">
+                                        <div class="result-value" id="invest_amount">₹ 30,00,000</div>
+                                        </div> 
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6 mt-2">
+                                        <div class="result-label">Est. Returns</div>
+                                        </div>
+                                        <div class="col-6 mt-2">
+                                            <div class="result-value" id="est_return">₹ 26,00,897</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                    <div class="col-6 mt-2">
+                                        <div class="result-label">Total Interest</div>
+                                    </div>
+                                       <div class="col-6 mt-2">
+                                        <div class="result-value" id="total_interest">₹ 56,00,897</div>
+                                    </div>
+                                    </div>
+                                
+
+                            </div>
+
+                            <div class="col-md-5 d-flex flex-column  align-items-center">
+                                   <div class="d-flex align-items-center gap-4 mb-3">
+                                    <span><span class="legend-dot legend-invested"></span> Invested amount</span>
+                                    <span><span class="legend-dot legend-returns"></span> Est. returns</span>
+                                </div>
+                                <canvas id="sipChart" width="300" height="300" class="mt-3"></canvas>
+
+                                <button class="btn btn-success text-white w-50 mt-5">INVEST NOW</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="col-lg-4 pt-4">
+                   
+                    <div class="info-card text-center">
+                        <img src="https://cms-resources.groww.in/uploads/Start_Investing_2_2286453507.png" alt="rupee" class="w-50">
+                        <h2 class="mt-2 mb-2">Build Wealth, One SIP at a Time</h2>
+                        <p class="mb-3">
+                            Start a SIP and harness the power of compounding through consistent, long-term investing.
+                        </p>
+                        <button class="btn btn-success w-100 mb-2">START SIP WITH ₹500</button>
+                    </div>
+                    
+                    <div class="popular-card">
+                        <div class="card-header text-center">
+                            Popular Calculators
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Lumpsum
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">SWP
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Mutual Fund
+                                    Returns Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Sukanya
+                                    Samriddhi Yojana Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Income Tax
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">PPF
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">EPF
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">FD
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">RD
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">EMI
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">GST
+                                    Calculator</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">XIRR
+                                    Calculator</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BOOTSTRAP JS BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js" type="text/javascript"></script>
+</body>
+
+</html>
